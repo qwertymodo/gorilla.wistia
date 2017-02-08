@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Threading.Tasks;
 using Gorilla.Wistia;
 using Gorilla.Wistia.Authentication;
@@ -10,7 +11,7 @@ namespace SampleApp
         static void Main(string[] args)
         {
 
-            var client = new Client(new Password("YOUR_API_PASSWORD"));
+            var client = new Client(new Password(ConfigurationManager.AppSettings["APIToken"]));
 
             //var fs = File.OpenRead(@"C:\Temp\video.mp4");
             //var result = client.Upload.File(fs, "video.mp4", "yay").Result;
