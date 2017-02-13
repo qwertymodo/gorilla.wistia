@@ -12,13 +12,13 @@ namespace Gorilla.Wistia.Modules.Data
             _client = client;
         }
 
-        public async Task<Models.Project> Show(string hashedId)
+        public async Task<Models.Data.Project> Show(string hashedId)
         {
             var data = await _client.Get($"/projects/{hashedId}.json");
-            return _client.Hydrate<Models.Project>(data);
+            return _client.Hydrate<Models.Data.Project>(data);
         }
 
-        public async Task<List<Models.Project>> List(int page = 1, int perPage = 10)
+        public async Task<List<Models.Data.Project>> List(int page = 1, int perPage = 10)
         {
             var pars = new Dictionary<string, string>
             {
@@ -27,10 +27,10 @@ namespace Gorilla.Wistia.Modules.Data
             };
             
             var data = await _client.Get("/projects.json", pars);
-            return _client.Hydrate<List<Models.Project>>(data);
+            return _client.Hydrate<List<Models.Data.Project>>(data);
         }
 
-        public async Task<Models.Project> Create(string name, bool anonymousCanUpload = false,
+        public async Task<Models.Data.Project> Create(string name, bool anonymousCanUpload = false,
             bool anonymousCanDownload = false, bool @public = false, string adminEmail = null)
         {
             var parameters = new Dictionary<string, string>
@@ -47,10 +47,10 @@ namespace Gorilla.Wistia.Modules.Data
             }
 
             var data = await _client.Post("/projects.json", parameters);
-            return _client.Hydrate<Models.Project>(data);
+            return _client.Hydrate<Models.Data.Project>(data);
         }
 
-        public async Task<Models.Project> Update(string hashedId, string name, bool anonymousCanUpload = false,
+        public async Task<Models.Data.Project> Update(string hashedId, string name, bool anonymousCanUpload = false,
             bool anonymousCanDownload = false, bool @public = false)
         {
             var parameters = new Dictionary<string, string>
@@ -62,19 +62,19 @@ namespace Gorilla.Wistia.Modules.Data
             };
 
             var data = await _client.Put($"/projects/{hashedId}.json", parameters);
-            return _client.Hydrate<Models.Project>(data);
+            return _client.Hydrate<Models.Data.Project>(data);
         }
 
-        public async Task<Models.Project> Delete(string hashedId)
+        public async Task<Models.Data.Project> Delete(string hashedId)
         {
             var data = await _client.Delete($"/projects/{hashedId}.json");
-            return _client.Hydrate<Models.Project>(data);
+            return _client.Hydrate<Models.Data.Project>(data);
         }
 
-        public async Task<Models.Project> Copy(string hashedId)
+        public async Task<Models.Data.Project> Copy(string hashedId)
         {
             var data = await _client.Post($"/projects/{hashedId}/copy.json");
-            return _client.Hydrate<Models.Project>(data);
+            return _client.Hydrate<Models.Data.Project>(data);
         }
 
     }

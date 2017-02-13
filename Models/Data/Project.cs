@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Gorilla.Wistia.Models
+namespace Gorilla.Wistia.Models.Data
 {
     public class Project
     {

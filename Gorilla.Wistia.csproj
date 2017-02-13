@@ -54,10 +54,10 @@
     <Compile Include="Models\Stats\Media.cs" />
     <Compile Include="Modules\Data\Media.cs" />
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Asset.cs" />
-    <Compile Include="Models\Media.cs" />
-    <Compile Include="Models\Project.cs" />
-    <Compile Include="Models\Thumbnail.cs" />
+    <Compile Include="Models\Data\Asset.cs" />
+    <Compile Include="Models\Data\Media.cs" />
+    <Compile Include="Models\Data\Project.cs" />
+    <Compile Include="Models\Data\Thumbnail.cs" />
     <Compile Include="Modules\Data\Account.cs" />
     <Compile Include="Modules\Data\Project.cs" />
     <Compile Include="Modules\Stats\Account.cs" />

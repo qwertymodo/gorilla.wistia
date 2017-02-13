@@ -1,4 +1,4 @@
-﻿namespace Gorilla.Wistia.Models
+﻿namespace Gorilla.Wistia.Models.Data
 {
     public class Asset
     {
