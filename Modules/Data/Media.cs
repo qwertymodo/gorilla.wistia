@@ -18,7 +18,7 @@ namespace Gorilla.Wistia.Modules.Data
             return _client.Hydrate<Models.Media>(data);
         }
 
-        public async Task<List<Models.Media>> List(int page = 1, int perPage = 10, string name = null, string projectId = null, string hashedId = null, string type = null)
+        public async Task<List<Models.Media>> List(string projectId = null, string hashedId = null, int page = 1, int perPage = 10, string name = null, string type = null)
         {
             var pars = new Dictionary<string, string>
             {
