@@ -31,8 +31,11 @@ namespace SampleApp
 
             try
             {
-                var result = Task.Run(async () => await client.Stats.Account.Show()).Result;
-                Console.WriteLine(result);
+                var visitorList = Task.Run(async () => await client.Stats.Visitor.List()).Result;
+                foreach(Gorilla.Wistia.Models.Stats.Visitor visitor in visitorList)
+                {
+                    Console.WriteLine(visitor.visitor_identity.name + " " + visitor.visitor_identity.email);
+                }
             }
             catch (Exception ex)
             {
