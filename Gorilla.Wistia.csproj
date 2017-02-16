@@ -57,7 +57,7 @@
     <Compile Include="Models\Stats\VisitorOrganization.cs" />
     <Compile Include="Models\Stats\VisitorUserAgent.cs" />
     <Compile Include="Modules\Data\Media.cs" />
-    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Data\Account.cs" />
     <Compile Include="Models\Data\Asset.cs" />
     <Compile Include="Models\Data\Media.cs" />
     <Compile Include="Models\Data\Project.cs" />

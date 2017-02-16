@@ -11,10 +11,10 @@ namespace Gorilla.Wistia.Modules.Data
             _client = client;
         }
 
-        public async Task<Models.Account> Show()
+        public async Task<Models.Data.Account> Show()
         {
             var data = await _client.Get("/account.json");
-            return _client.Hydrate<Models.Account>(data);
+            return _client.Hydrate<Models.Data.Account>(data);
         }
     }
 }
