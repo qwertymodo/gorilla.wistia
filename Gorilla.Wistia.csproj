@@ -50,6 +50,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="Models\Stats\Action.cs" />
     <Compile Include="Models\Stats\Account.cs" />
+    <Compile Include="Models\Stats\Event.cs" />
     <Compile Include="Models\Stats\Project.cs" />
     <Compile Include="Models\Stats\Media.cs" />
     <Compile Include="Models\Stats\Visitor.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Modules\Data\Account.cs" />
     <Compile Include="Modules\Data\Project.cs" />
     <Compile Include="Modules\Stats\Account.cs" />
+    <Compile Include="Modules\Stats\Event.cs" />
     <Compile Include="Modules\Stats\Project.cs" />
     <Compile Include="Modules\Stats\Media.cs" />
     <Compile Include="Modules\Stats\Stats.cs" />

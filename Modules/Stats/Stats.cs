@@ -12,5 +12,6 @@
         public Project Project => new Project(_client);
         public Account Account => new Account(_client);
         public Visitor Visitor => new Visitor(_client);
+        public Event Event => new Event(_client);
     }
 }

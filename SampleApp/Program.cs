@@ -3,6 +3,8 @@ using System.Configuration;
 using System.Threading.Tasks;
 using Gorilla.Wistia;
 using Gorilla.Wistia.Authentication;
+using Data = Gorilla.Wistia.Models.Data;
+using Stats = Gorilla.Wistia.Models.Stats;
 
 namespace SampleApp
 {
@@ -32,9 +34,22 @@ namespace SampleApp
             try
             {
                 var visitorList = Task.Run(async () => await client.Stats.Visitor.List()).Result;
-                foreach(Gorilla.Wistia.Models.Stats.Visitor visitor in visitorList)
+                foreach (Stats.Visitor visitor in visitorList)
                 {
                     Console.WriteLine(visitor.visitor_identity.name + " " + visitor.visitor_identity.email);
+
+                    try
+                    {
+                        var eventList = Task.Run(async () => await client.Stats.Event.List()).Result;
+                        foreach (Stats.Event e in eventList)
+                        {
+                            Console.WriteLine(e.media_name + " " + e.event_key);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                 }
             }
             catch (Exception ex)
