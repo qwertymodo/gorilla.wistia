@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using Gorilla.Wistia.Authentication;
+using Gorilla.Wistia.Modules.Data;
 using Gorilla.Wistia.Modules.Stats;
 using Gorilla.Wistia.Modules.Upload;
 using Newtonsoft.Json;
@@ -51,16 +52,11 @@ namespace Gorilla.Wistia
         }
 
         public IAuthentication Authentication { get; }
-
-        public Project Project => new Project();
-
-        public Media Media => new Media();
-
-        public Account Account => new Account();
-
-        public Upload Upload => new Upload();
+        public Data Data => new Data();
 
         public Stats Stats => new Stats();
+
+        public Upload Upload => new Upload();
 
         internal async Task<string> Get(string uri, Dictionary<string, string> parameters = null)
         {
