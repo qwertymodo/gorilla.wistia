@@ -12,12 +12,18 @@ namespace Gorilla.Wistia.Modules.Stats
             _client = ClientFactory.client;
         }
 
-        public async Task<Models.Stats.Visitor> Show(string visitorKey)
+        private async Task<Models.Stats.Visitor> _Show(string visitorKey)
         {
             var data = await _client.Get($"/medias/{visitorKey}.json");
             return _client.Hydrate<Models.Stats.Visitor>(data);
         }
-        public async Task<List<Models.Stats.Visitor>> List(string filter = null, string search = null, int page = 1, int perPage = 10)
+
+        public Models.Stats.Visitor Show(string visitoryKey)
+        {
+            return Task.Run(async () => await _Show(visitoryKey)).Result;
+        }
+
+        private async Task<List<Models.Stats.Visitor>> _List(string filter, string search, int page, int perPage)
         {
             var pars = new Dictionary<string, string>
             {
@@ -29,6 +35,11 @@ namespace Gorilla.Wistia.Modules.Stats
 
             var data = await _client.Get("/stats/visitors.json", pars);
             return _client.Hydrate<List<Models.Stats.Visitor>>(data);
+        }
+
+        public List<Models.Stats.Visitor> List(string filter = null, string search = null, int page = 1, int perPage = 10)
+        {
+            return Task.Run(async () => await _List(filter, search, page, perPage)).Result;
         }
     }
 }

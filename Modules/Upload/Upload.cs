@@ -16,7 +16,7 @@ namespace Gorilla.Wistia.Modules.Upload
             _client = ClientFactory.client;
         }
 
-        public async Task<Models.Data.Media> File(Stream fileStream, string name = "", string description = "", string projectId = null)
+        private async Task<Models.Data.Media> _File(Stream fileStream, string name, string description, string projectId)
         {
             using (var formData = new MultipartFormDataContent())
             {
@@ -45,7 +45,12 @@ namespace Gorilla.Wistia.Modules.Upload
             }
         }
 
-        public async Task<Models.Data.Media> Url(string url, string name = null, string description = null, string projectId = null)
+        public Models.Data.Media File(Stream fileStream, string name = null, string description = null, string projectId = null)
+        {
+            return Task.Run(async () => await _File(fileStream, name, description, projectId)).Result;
+        }
+
+        private async Task<Models.Data.Media> _Url(string url, string name, string description, string projectId)
         {
             var pars = new Dictionary<string, string>
             {
@@ -58,7 +63,13 @@ namespace Gorilla.Wistia.Modules.Upload
             var response = await _client.Post(Client.UploadUrl, pars);
             return _client.Hydrate<Models.Data.Media>(response);
         }
-        
+
+        public Models.Data.Media Url(string url, string name = null, string description = null, string projectId = null)
+        {
+            return Task.Run(async () => await _Url(url, name, description, projectId)).Result;
+        }
+
+
         private static void AddStringContent(MultipartFormDataContent form, string name, string value)
         {
 

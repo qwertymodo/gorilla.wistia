@@ -24,7 +24,7 @@ namespace Gorilla.Wistia.Models.Data
             {
                 if(_medias == null)
                 {
-                    _medias = Task.Run(async () => await ClientFactory.client.Data.Media.List(this.hashedId, null, 1, mediaCount < 100 ? mediaCount : 100)).Result;
+                    _medias = ClientFactory.client.Data.Media.List(this.hashedId, null, 1, mediaCount < 100 ? mediaCount : 100);
                 }
                 return _medias;
             } }

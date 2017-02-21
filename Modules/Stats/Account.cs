@@ -11,10 +11,15 @@ namespace Gorilla.Wistia.Modules.Stats
             _client = ClientFactory.client;
         }
 
-        public async Task<Models.Stats.Account> Show()
+        private async Task<Models.Stats.Account> _Show()
         {
             var data = await _client.Get("/stats/account.json");
             return _client.Hydrate<Models.Stats.Account>(data);
+        }
+
+        public Models.Stats.Account Show()
+        {
+            return Task.Run(async () => await _Show()).Result;
         }
     }
 }
