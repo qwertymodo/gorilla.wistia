@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gorilla.Wistia.Models.Data
 {
@@ -16,6 +17,16 @@ namespace Gorilla.Wistia.Models.Data
         public bool anonymousCanDownload { get; set; }
         public bool @public { get; set; }
         public string publicId { get; set; }
-        public List<Media> medias { get; set; }
+        private List<Media> _medias = null;
+        public List<Media> medias
+        {
+            get
+            {
+                if(_medias == null)
+                {
+                    _medias = Task.Run(async () => await ClientFactory.client.Data.Media.List(this.hashedId, null, 1, mediaCount < 100 ? mediaCount : 100)).Result;
+                }
+                return _medias;
+            } }
     }
 }
