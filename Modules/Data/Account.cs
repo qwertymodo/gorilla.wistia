@@ -6,9 +6,9 @@ namespace Gorilla.Wistia.Modules.Data
     {
         private readonly Client _client;
 
-        public Account(Client client)
+        public Account()
         {
-            _client = client;
+            _client = ClientFactory.client;
         }
 
         public async Task<Models.Data.Account> Show()

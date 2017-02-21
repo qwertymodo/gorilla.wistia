@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Configuration;
 using System.Threading.Tasks;
 using Gorilla.Wistia;
-using Gorilla.Wistia.Authentication;
 using Data = Gorilla.Wistia.Models.Data;
 using Stats = Gorilla.Wistia.Models.Stats;
 
@@ -13,7 +11,7 @@ namespace SampleApp
         static void Main(string[] args)
         {
 
-            var client = new Client(new Password(ConfigurationManager.AppSettings["APIToken"]));
+            var client = ClientFactory.client;
 
             //var fs = File.OpenRead(@"C:\Temp\video.mp4");
             //var result = client.Upload.File(fs, "video.mp4", "yay").Result;

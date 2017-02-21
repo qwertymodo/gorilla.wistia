@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -14,6 +15,24 @@ using Project = Gorilla.Wistia.Modules.Data.Project;
 
 namespace Gorilla.Wistia
 {
+    public static class ClientFactory
+    {
+        private static Client _client = null;
+
+        public static Client client
+        {
+            get
+            {
+                if (_client == null)
+                {
+                    _client = new Client(new Password(ConfigurationManager.AppSettings["APIToken"]));
+                }
+
+                return _client;
+            }
+        }
+    }
+
     public class Client : IDisposable
     {
         public const string UploadUrl = "https://upload.wistia.com";
@@ -33,15 +52,15 @@ namespace Gorilla.Wistia
 
         public IAuthentication Authentication { get; }
 
-        public Project Project => new Project(this);
+        public Project Project => new Project();
 
-        public Media Media => new Media(this);
+        public Media Media => new Media();
 
-        public Account Account => new Account(this);
+        public Account Account => new Account();
 
-        public Upload Upload => new Upload(this);
+        public Upload Upload => new Upload();
 
-        public Stats Stats => new Stats(this);
+        public Stats Stats => new Stats();
 
         internal async Task<string> Get(string uri, Dictionary<string, string> parameters = null)
         {

@@ -11,9 +11,9 @@ namespace Gorilla.Wistia.Modules.Upload
         
         private readonly Client _client;
 
-        public Upload(Client client)
+        public Upload()
         {
-            _client = client;
+            _client = ClientFactory.client;
         }
 
         public async Task<Models.Data.Media> File(Stream fileStream, string name = "", string description = "", string projectId = null)

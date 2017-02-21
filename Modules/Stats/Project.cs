@@ -6,9 +6,9 @@ namespace Gorilla.Wistia.Modules.Stats
     {
         private readonly Client _client;
 
-        public Project(Client client)
+        public Project()
         {
-            _client = client;
+            _client = ClientFactory.client;
         }
 
         public async Task<Models.Stats.Project> Show(string projectId)

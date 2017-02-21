@@ -6,9 +6,9 @@ namespace Gorilla.Wistia.Modules.Stats
     {
         private readonly Client _client;
 
-        public Media(Client client)
+        public Media()
         {
-            _client = client;
+            _client = ClientFactory.client;
         }
 
         public async Task<Models.Stats.Media> Show(string hashedId)

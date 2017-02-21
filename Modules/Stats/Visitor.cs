@@ -7,9 +7,9 @@ namespace Gorilla.Wistia.Modules.Stats
     {
         private readonly Client _client;
 
-        public Visitor(Client client)
+        public Visitor()
         {
-            _client = client;
+            _client = ClientFactory.client;
         }
 
         public async Task<Models.Stats.Visitor> Show(string visitorKey)

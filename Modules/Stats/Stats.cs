@@ -2,16 +2,13 @@
 {
     public class Stats
     {
-        private readonly Client _client;
-        public Stats(Client client)
-        {
-            _client = client;
-        }
+        public Stats()
+        { }
 
-        public Media Media => new Media(_client);
-        public Project Project => new Project(_client);
-        public Account Account => new Account(_client);
-        public Visitor Visitor => new Visitor(_client);
-        public Event Event => new Event(_client);
+        public Media Media => new Media();
+        public Project Project => new Project();
+        public Account Account => new Account();
+        public Visitor Visitor => new Visitor();
+        public Event Event => new Event();
     }
 }
