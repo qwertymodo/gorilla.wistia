@@ -23,7 +23,7 @@ namespace Gorilla.Wistia.Modules.Stats
             return Task.Run(async () => await _Show(visitoryKey)).Result;
         }
 
-        private async Task<List<Models.Stats.Visitor>> _List(string filter, string search, int page, int perPage)
+        private async Task<List<Models.Stats.Visitor>> _List(string filter, string search, int perPage, int page)
         {
             var pars = new Dictionary<string, string>
             {
@@ -37,7 +37,7 @@ namespace Gorilla.Wistia.Modules.Stats
             return _client.Hydrate<List<Models.Stats.Visitor>>(data);
         }
 
-        public List<Models.Stats.Visitor> List(string filter = null, string search = null, int page = 1, int perPage = 10)
+        public List<Models.Stats.Visitor> List(string filter = null, string search = null, int perPage = 10, int page = 1)
         {
             return Task.Run(async () => await _List(filter, search, page, perPage)).Result;
         }

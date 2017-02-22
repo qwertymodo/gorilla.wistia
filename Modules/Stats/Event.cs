@@ -24,7 +24,7 @@ namespace Gorilla.Wistia.Modules.Stats
             return Task.Run(async () => await _Show(eventKey)).Result;
         }
 
-        private async Task<List<Models.Stats.Event>> _List(string mediaId, string visitorKey, DateTime startDate, DateTime endDate, int page, int perPage)
+        private async Task<List<Models.Stats.Event>> _List(string mediaId, string visitorKey, DateTime startDate, DateTime endDate, int perPage, int page)
         {
             var pars = new Dictionary<string, string>
             {
@@ -40,7 +40,7 @@ namespace Gorilla.Wistia.Modules.Stats
             return _client.Hydrate<List<Models.Stats.Event>>(data);
         }
 
-        public List<Models.Stats.Event> List(string mediaId = null, string visitorKey = null, DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), int page = 1, int perPage = 10)
+        public List<Models.Stats.Event> List(string mediaId = null, string visitorKey = null, DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), int perPage = 10, int page = 1)
         {
             return Task.Run(async () => await _List(mediaId, visitorKey, startDate, endDate, page, perPage)).Result;
         }

@@ -23,7 +23,7 @@ namespace Gorilla.Wistia.Modules.Data
             return Task.Run(async () => await _Show(hashedId)).Result;
         }
 
-        private async Task<List<Models.Data.Project>> _List(int page, int perPage)
+        private async Task<List<Models.Data.Project>> _List(int perPage, int page)
         {
             var pars = new Dictionary<string, string>
             {
@@ -35,7 +35,7 @@ namespace Gorilla.Wistia.Modules.Data
             return _client.Hydrate<List<Models.Data.Project>>(data);
         }
 
-        public List<Models.Data.Project> List(int page = 1, int perPage = 10)
+        public List<Models.Data.Project> List(int perPage = 10, int page = 1)
         {
             return Task.Run(async () => await _List(page, perPage)).Result;
         }
