@@ -49,6 +49,7 @@
     <Compile Include="Authentication\IAuthentication.cs" />
     <Compile Include="Authentication\Password.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="Models\Stats\Thumbnail.cs" />
     <Compile Include="Modules\Data\Data.cs" />
     <Compile Include="Models\Stats\Action.cs" />
     <Compile Include="Models\Stats\Account.cs" />

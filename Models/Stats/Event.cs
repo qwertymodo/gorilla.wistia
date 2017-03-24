@@ -21,6 +21,7 @@ namespace Gorilla.Wistia.Models.Stats
         public string media_id { get; set; }    // => Gorilla.Wistia.Models.Data.Media.hashed_id
         public string media_url { get; set; }
         public string media_name { get; set; }  // => Gorilla.Wistia.Models.Data.Media.name
+        public Thumbnail thumbnail { get; set; }
         public string iframe_heatmap_url { get; set; }
     }
 }
