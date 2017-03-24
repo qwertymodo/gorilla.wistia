@@ -37,7 +37,7 @@ namespace Gorilla.Wistia.Modules.Data
 
         public List<Models.Data.Project> List(int perPage = 10, int page = 1)
         {
-            return Task.Run(async () => await _List(page, perPage)).Result;
+            return Task.Run(async () => await _List(perPage, page)).Result;
         }
 
         private async Task<Models.Data.Project> _Create(string name, bool anonymousCanUpload, bool anonymousCanDownload, bool @public, string adminEmail)

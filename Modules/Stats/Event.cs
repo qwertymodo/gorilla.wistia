@@ -42,7 +42,7 @@ namespace Gorilla.Wistia.Modules.Stats
 
         public List<Models.Stats.Event> List(string mediaId = null, string visitorKey = null, DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), int perPage = 10, int page = 1)
         {
-            return Task.Run(async () => await _List(mediaId, visitorKey, startDate, endDate, page, perPage)).Result;
+            return Task.Run(async () => await _List(mediaId, visitorKey, startDate, endDate, perPage, page)).Result;
         }
     }
 }

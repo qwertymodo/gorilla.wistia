@@ -53,6 +53,8 @@ namespace SampleApp
             {
                 Console.WriteLine(ex);
             }
+
+            var projectList = client.Data.Project.List();
         }
     }
 }

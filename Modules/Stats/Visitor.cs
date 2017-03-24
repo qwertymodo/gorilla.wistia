@@ -39,7 +39,7 @@ namespace Gorilla.Wistia.Modules.Stats
 
         public List<Models.Stats.Visitor> List(string filter = null, string search = null, int perPage = 10, int page = 1)
         {
-            return Task.Run(async () => await _List(filter, search, page, perPage)).Result;
+            return Task.Run(async () => await _List(filter, search, perPage, page)).Result;
         }
     }
 }
